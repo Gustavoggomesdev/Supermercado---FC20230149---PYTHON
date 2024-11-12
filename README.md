@@ -4,20 +4,33 @@ A simple command-line market management system in Python, using Object-Oriented 
 
 ![Banner do Supermarcket](https://via.placeholder.com/800x200.png?text=WelcomeToSupermarcket)
 
-Features
+## Features
 
-Open and Close Cash Register: Set an initial cash amount when opening, and calculate the final cash balance at closing.
-Product Management:
-Add Products: Register products with attributes like code, name, price, quantity, type, expiration date, and warranty.
-Search Products: Look up products by code.
-Delete Products: Remove products from the inventory by code.
-Sales Process:
-Add items to a sale by product code and quantity.
-Consolidate identical items in the sale list, updating the quantity and total price.
-Display the total purchase amount in real-time as items are added.
-Inventory Monitoring:
-Low Stock Warning: Display products with quantities less than 5.
-Expiration Warning: Display products with upcoming expiration dates.
+- **Cash Register Management**: Open and close the cash register, setting an initial balance and tracking the final balance after sales.
+- **Product Management**:
+  <ul>
+    <li>Add new products with details like code, name, price, quantity, type, expiration date, and warranty.</li>
+    <li>Search for products by code.</li>
+    <li>Delete products from the inventory.</li>
+  </ul>
+- **Sales Processing**:
+  <ul>
+    <li>Process individual sales, with real-time updates on each item added to the cart.</li>
+    <li>Consolidate duplicate items in the cart by updating quantity and total price dynamically.</li>
+    <li>Display the running total of the sale with each added item.</li>
+  </ul>
+- **Inventory Tracking**:
+  <ul>
+    <li>Show products nearing expiration.</li>
+    <li>Show products with low stock (fewer than 5 units).</li>
+  </ul>
+
+## Project Structure
+
+<ul>
+  <li><b>Product class</b>: Represents each product with attributes like code, name, price, quantity, type, expiration date, and warranty.</li>
+  <li><b>Market class</b>: Manages products, the cash register, and sales, including inventory operations and report generation.</li>
+</ul>
 
 📧 Contato
 Se tiver dúvidas ou sugestões, entre em contato:<br>
