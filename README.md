@@ -18,8 +18,8 @@ Bem-vindo
 
 
 📧 Contato
-Se tiver dúvidas ou sugestões, entre em contato:
-Email: gustavoggomes27@hotmail.com
+Se tiver dúvidas ou sugestões, entre em contato:<br>
+Email: gustavoggomes27@hotmail.com <br>
 LinkedIn: Gustavo Gonçalves Gomes
 
 Feito com ❤️ e odio
