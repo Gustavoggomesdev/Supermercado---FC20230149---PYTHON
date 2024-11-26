@@ -1,6 +1,3 @@
-
-#Falta adicionar itens ja cadastrado ao iniciar o codigo
-
 class Product:
     def __init__(self, codigo, produto, valor, unidades, tipo, validade=None, garantia=None):
         self.codigo = codigo
@@ -23,7 +20,7 @@ class Market:
         self.valor_final = 0.0
         self.vendas = []
 
-    def abrir_caixa(self):
+    def open_cash_register(self):
         if not self.caixa_aberto:
             self.valor_inicial = float(input("Digite o valor inicial do caixa: "))
             self.valor_final = self.valor_inicial
@@ -32,14 +29,14 @@ class Market:
         else:
             print("O caixa já está aberto.")
 
-    def fechar_caixa(self):
+    def close_cash_register(self):
         if self.caixa_aberto:
             print(f"Caixa fechado com valor final de R$ {self.valor_final}")
             self.caixa_aberto = False
         else:
             print("O caixa já está fechado.")
 
-    def cadastrar_produto(self):
+    def register_product(self):
         codigo = int(input("Digite o código do produto: "))
         if codigo in self.produtos:
             print("Produto já cadastrado!")
@@ -56,7 +53,7 @@ class Market:
         self.produtos[codigo] = produto
         print("Produto cadastrado com sucesso.")
 
-    def pesquisar_produto(self):
+    def search_product(self):
         codigo = int(input("Digite o código do produto para pesquisa: "))
         produto = self.produtos.get(codigo)
         if produto:
@@ -64,7 +61,7 @@ class Market:
         else:
             print("Produto não encontrado.")
 
-    def excluir_produto(self):
+    def delete_product(self):
         codigo = int(input("Digite o código do produto a ser excluído: "))
         if codigo in self.produtos:
             del self.produtos[codigo]
@@ -72,7 +69,7 @@ class Market:
         else:
             print("Produto não encontrado.")
 
-    def realizar_venda(self):
+    def make_sale(self):
         if not self.caixa_aberto:
             print("O caixa não está aberto!")
             return
@@ -112,16 +109,16 @@ class Market:
 
         print(f"Total da compra: R$ {total_compra:.2f}")
 
-    def mostrar_proximos_a_vencer(self):
-        print("Produtos próximos do vencimento:")
-        for produto in self.produtos.values():
-            if produto.validade:
-                print(produto)
-
-    def mostrar_proximos_a_esgotar(self):
+    def show_nearly_out_of_stock(self):
         print("Produtos com baixa quantidade em estoque:")
         for produto in self.produtos.values():
             if produto.unidades < 5:
+                print(produto)
+
+    def show_nearly_expiring(self):
+        print("Produtos próximos do vencimento:")
+        for produto in self.produtos.values():
+            if produto.validade:
                 print(produto)
 
 
@@ -135,7 +132,7 @@ while True:
     escolha = int(input("Digite a opção desejada: "))
 
     if escolha == 1:
-        market.abrir_caixa()
+        market.open_cash_register()
     elif escolha == 2:
         print("Menu Principal:")
         print("1 - Cadastrar Produto")
@@ -149,19 +146,19 @@ while True:
         escolha2 = int(input("Digite a opção desejada: "))
 
         if escolha2 == 1:
-            market.cadastrar_produto()
+            market.register_product()
         elif escolha2 == 2:
-            market.pesquisar_produto()
+            market.search_product()
         elif escolha2 == 3:
-            market.excluir_produto()
+            market.delete_product()
         elif escolha2 == 4:
-            market.realizar_venda()
+            market.make_sale()
         elif escolha2 == 5:
-            market.mostrar_proximos_a_vencer()
+            market.show_nearly_expiring()
         elif escolha2 == 6:
-            market.mostrar_proximos_a_esgotar()
+            market.show_nearly_out_of_stock()
         elif escolha2 == 7:
             continue
     elif escolha == 3:
-        market.fechar_caixa()
+        market.close_cash_register()
         break
